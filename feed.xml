@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>minimum</title>
+    <description>theme for personal blogs, focused on minimalism and simplicity</description>
+    <link>http://test.it/</link>
+    <atom:link href="http://test.it/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Fri, 12 Dec 2014 12:03:49 -0500</pubDate>
+    <lastBuildDate>Fri, 12 Dec 2014 12:03:49 -0500</lastBuildDate>
+    <generator>Jekyll v2.5.2</generator>
+    
+      <item>
+        <title>Hasta pronto sudo, bienvenidos nuevos proyectos</title>
+        <description>&lt;p&gt;Desde la concepción de este blog he tenido como máxima, generar contenidos 
+interesantes, útiles y debatibles. Gracias a tan poco tiempo de vida de este 
+espacio he aprendido &lt;strong&gt;un montón&lt;/strong&gt; de cosas nuevas y me he visto obligado a 
+aumentar mis habilidades de redacción, investigación y otras. Hasta hoy he sido 
+capaz de llevar varias cosas simúltáneamente sin dejar de atender otras también 
+importantes.&lt;/p&gt;
+
+&lt;p&gt;Hoy me siento más entusiasmado que nunca, ha surgido el proyecto 
+&lt;strong&gt;más importante&lt;/strong&gt; de mi vida, mi primera hija, muy próxima a nacer. No es un 
+secreto que un hijo consume &lt;strong&gt;todo el tiempo&lt;/strong&gt; de los padres y sin reproches, 
+es y debe ser para ellos. Es hora de girar el rumbo, ese que eventualmente la 
+mayoría tomamos y que nunca dejamos.&lt;/p&gt;
+
+&lt;p&gt;Dejaré el contenido íntegro a modo de referencia y archivo, eventualmente 
+deshabilitaré los comentarios &amp;mdash;será imposible mantenerlos&amp;mdash; y si se cumplen 
+los términos de Reflejos, dentro de unos pocos meses el blog se archivará y 
+dejará de existir (tengo mi xml con todo el contenido).&lt;/p&gt;
+
+&lt;p&gt;Si el tiempo lo permite y no se extinguen las ganas de compartir, quizá haya 
+otro sudo, quién sabe en otro hosting, a lo mejor no con WordPress, o 
+definitivamente este sea el fin. Sea cual sea el futuro, me llevo la 
+satisfacción de que a varios les ha servido lo que aquí he compartido.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 08 Dec 2014 23:38:00 -0500</pubDate>
+        <link>http://test.it/articles/nuevos-proyectos.html</link>
+        <guid isPermaLink="true">http://test.it/articles/nuevos-proyectos.html</guid>
+        
+        <category>proyectos</category>
+        
+        <category>test</category>
+        
+        
+        <category>articles</category>
+        
+      </item>
+    
+      <item>
+        <title>lorem-ipsum</title>
+        <description>&lt;h2&gt;heading2&lt;/h2&gt;
+
+&lt;h3&gt;heading3&lt;/h3&gt;
+
+&lt;h4&gt;heading4&lt;/h4&gt;
+
+&lt;p&gt;do you really want &lt;strong&gt;more&lt;/strong&gt; headings?&lt;/p&gt;
+
+&lt;h2&gt;Placeholder text&lt;/h2&gt;
+
+&lt;p&gt;Lorem ipsum &lt;em&gt;dolor&lt;/em&gt; sit amet, &lt;a href=&quot;http://foo.tld&quot; title=&quot;foo&quot;&gt;consectetur&lt;/a&gt; adipisicing elit. &lt;em&gt;Reprehenderit&lt;/em&gt; minima 
+deserunt, inventore &amp;mdash;architecto&amp;mdash; corporis &lt;code&gt;earum&lt;/code&gt; maxime iusto empora ea! Quo 
+suscipit &amp;ndash;pariatur&amp;ndash; excepturi, &lt;strong&gt;repellendus&lt;/strong&gt; rerum. Temporibus laudantium corrupti, 
+consectetur, &amp;ldquo;error&amp;rdquo; nisi repellat exercitationem cum &lt;strong&gt;&lt;em&gt;possimus&lt;/em&gt;&lt;/strong&gt; dolor dolores 
+laborum accusantium tenetur quisquam. Quam culpa quis illum, quisquam sapiente
+explicabo ea voluptatum&amp;hellip;&lt;/p&gt;
+
+&lt;h2&gt;Here comes a blockquote&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga atque dolorem 
+aliquid eveniet. Labore inventore mollitia maiores iure explicabo neque 
+aliquam, nam veritatis, consequuntur, atque sapiente dolor placeat nisi 
+nesciunt.&lt;/p&gt;
+
+&lt;p&gt;&lt;cite&gt;John Doe&lt;/cite&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2&gt;Some lists&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;item1&lt;/li&gt;
+&lt;li&gt;item2&lt;/li&gt;
+&lt;li&gt;item3
+
+&lt;ol&gt;
+&lt;li&gt;item1&lt;/li&gt;
+&lt;li&gt;item2&lt;/li&gt;
+&lt;li&gt;item3&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+&lt;li&gt;item1&lt;/li&gt;
+&lt;li&gt;item2&lt;/li&gt;
+&lt;li&gt;item3
+
+&lt;ul&gt;
+&lt;li&gt;item1&lt;/li&gt;
+&lt;li&gt;item2&lt;/li&gt;
+&lt;li&gt;item3&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;A nice hr&lt;/h2&gt;
+
+&lt;hr&gt;
+
+&lt;h2&gt;Look ma&amp;rsquo; I&amp;rsquo;m looping&lt;/h2&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;0&amp;quot;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt; -lt &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$[$i&lt;/span&gt;+1&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+        <pubDate>Mon, 08 Dec 2014 15:09:00 -0500</pubDate>
+        <link>http://test.it/articles/lorem-ipsum.html</link>
+        <guid isPermaLink="true">http://test.it/articles/lorem-ipsum.html</guid>
+        
+        <category>foo</category>
+        
+        <category>bar</category>
+        
+        <category>baz</category>
+        
+        
+        <category>articles</category>
+        
+      </item>
+    
+  </channel>
+</rss>

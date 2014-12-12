@@ -1,0 +1,707 @@
+/*
+ * minimum 1.0
+ *
+ * Theme for personal blogs, focused on minimalism and simplicity.
+ *
+ * Copyright (C) 2014 oneohthree (http://sudo.cubava.cu)
+ *
+ * License: GNU General Public License v2 or later
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ *
+ */
+
+/* reset partly based on normalize by Nicolas Gallagher http://necolas.github.io/normalize.css/ */
+
+article,
+aside,
+details,
+figcaption,
+figure, 
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section {
+	display: block;
+}
+
+html {
+	background-color: #fff;
+	color: #333;
+	font-family: "Roboto", sans-serif;
+	font-style: normal; 
+	font-size: 18px;
+	line-height: 1;
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+
+body {
+	margin: 0 auto;
+	max-width: 35.5555em; /* 640px/18px */
+	padding: 0 1em;
+	word-wrap: break-word;
+}
+
+::-moz-selection { 
+	background: #069;
+	color: #eee;
+}
+::selection { 
+	background: #069;
+	color: #eee;
+}
+
+/* border and padding width not added in container width */
+
+*,
+*:after,
+*:before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/* do you still need > h4 headings? I don't */
+
+h1,
+h2,
+h3,
+h4 {
+	color: #069;
+	font-weight: lighter;
+	line-height: 1.25em;
+	margin: 0 0 1em 0;
+	text-align: left;
+}
+
+h1 {
+	font-size: 2.2222em; /* 40px/18px */
+	text-align: center;
+}
+
+h2 {
+	font-size: 1.5555em; /* 28px/18px */
+}
+
+h3 {
+	font-size: 1.2222em; /* 22px/18px */
+}
+
+h4 {
+	font-size: 1em; /* 18px/18px */
+}
+
+a {
+	color: #069;
+	text-decoration: none;
+}
+
+/* don't like visited links color change, but need accessibility */
+
+a:visited {
+	color: #036;
+}
+
+a:active,
+a:hover,
+a:focus {
+	outline: 0;
+	text-decoration: underline;
+}
+
+p {
+	line-height: 1.75em;
+	margin: 0 0 1em 0;
+}
+
+blockquote,
+q {
+	color: #666;
+	font-style: italic;
+	quotes: none;
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+blockquote {
+	border-left: 2px solid #069;
+	line-height: 2em;
+	margin: 2em 0;
+	padding: 0 0 0 2em;
+}
+
+blockquote p {
+	margin: 0;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: "";
+	content: none;
+}
+
+blockquote cite {
+	color: #333;
+	display: block;
+	font-style: normal;
+	font-weight: normal;
+	margin-top: 1em;
+}
+
+blockquote cite:before {
+	content: "\2013";
+}
+
+blockquote em,
+blockquote i {
+	font-style: normal;
+}
+
+blockquote strong,
+blockquote b {
+	font-weight: bold;
+}
+
+ol,
+ul {
+	line-height: 1.75;
+	padding: 0;
+	margin: 0 0 1em 1em;
+}
+
+ul {
+	list-style-type: disc; /* yeah, I like circles */
+}
+
+ol ol {
+	list-style: lower-alpha;
+}
+
+ul ul {
+	list-style-type: circle;
+}
+
+b,
+strong {
+	font-weight: bold;
+}
+
+em,
+i {
+	font-style: italic;
+}
+
+big {
+	font-size: 1.25em;
+}
+
+small {
+	font-size: .75em;
+}
+
+sub,
+sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sup {
+	top: -0.5em;
+}
+
+sub {
+	bottom: -0.25em;
+}
+
+address {
+	font-style: italic;
+	margin-bottom: 1em;
+}
+
+abbr[title] {
+	border-bottom: 1px dotted;
+	cursor: help;
+}
+
+dfn {
+	font-style: italic;
+}
+
+mark {
+	background: #069;
+	color: #eee;
+}
+
+code,
+kbd,
+pre,
+samp {
+	background-color: #eee;
+	color: #333;
+	font-family: monospace;
+	font-size: .8888em; /* 16px / 18px */
+	overflow: auto;
+/*	white-space: pre;
+	word-break: normal;
+	word-spacing: normal;
+	word-wrap: normal;*/
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+}
+
+pre {
+	line-height: 1.75;
+	margin: 1em 0;
+	padding: 1em;
+}
+
+code {
+	padding: 2px 4px; /* some nice padding for inline code */
+}
+
+pre code {
+	font-size: 1em; /* keep uniform font size */
+	padding: 0; /* no more nice padding (not inline code) */
+}
+
+table {
+	border-top: 1px dotted #eee;
+	border-collapse: collapse;
+	border-spacing: 0;
+	line-height: 1.5;
+	margin: 0 0 1em;
+	width: 100%;
+}
+
+th {
+	background-color: #eee;
+	border: 1px dotted #eee;
+	font-weight: bold;
+}
+
+td {
+	border: 1px dotted #eee;
+}
+
+th,
+tr,
+td {
+	padding: .5em;
+}
+
+hr {
+	background-color: #ccc;
+	border: none;
+	height: 1px;
+	margin: 2em 0;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+}
+
+del {
+	color: #999;
+}
+
+ins {
+	/* underlined by default, don't know what the hell will use to style this */
+}
+
+figure {
+	margin: 1em 2.2222em; /* 40px/18px */
+}
+
+img {
+	border: 0;
+	max-width: 100%; /* nice fluid images */
+}
+
+button,
+input,
+select,
+textarea {
+	color: inherit;
+	font: inherit;
+	margin: 0;
+}
+
+input {
+	line-height: normal;
+}
+
+input::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+}
+
+/* hide some stuff for browsers but allow screen readers see them */
+
+.screen-reader {
+	left: -9999px;
+	position: absolute;
+	top: -9999px;
+}
+
+/* header *********************************************************************/
+
+.site-header {
+	padding: 4em 0;
+	text-align: center;
+}
+
+.menu {
+	background-color: #111;
+	left: 0;
+	line-height: 2.2222em; /* 40px/18px */
+	position: fixed; /* always visible, easier navigation */
+	top: 0;
+	width: 100%;
+	z-index: 1;
+}
+
+.menu-wrapper {
+	max-width: 35.5555em; /* 640px/18px */
+	margin: 0 auto;
+	text-align: left;
+	padding: 0 1em;
+	position: relative;
+}
+
+.menu a {
+	display: inline-block;
+	font-weight: lighter;
+	padding: 0;
+	margin: 0 2em 0 0;
+	color: #eee;
+	vertical-align: middle;
+}
+
+.menu a:active,
+.menu a:hover,
+.menu a:focus {
+	color: #069;
+	text-decoration: none;
+}
+
+.site-logo {
+	background-color: #111;
+	border-radius: 100%;
+	display: inline-block;
+	margin: 0;
+	text-align: center;
+	width: 128px;
+	height: 128px;
+	transition: background-color .3s ease; /* some fancy stuff i'm not so square */
+}
+
+.site-logo:hover {
+	background-color: #069;
+}
+
+/* fallback if no site logo is defined */
+
+.site-title {
+	font-size: 3em;
+	transition: color .3s ease;
+}
+
+.site-title:hover {
+	color: #333;
+	text-decoration: none;
+}
+
+/*  entry list ****************************************************************/
+
+.archive-title {
+	color: #333;
+}
+
+.entry-list {
+	list-style: none;
+	margin: 0;
+}
+
+.entry {
+	border-bottom: 1px solid #eee;
+	line-height: 1.5;
+	padding: .75em 0;
+}
+
+.entry:first-of-type {
+	border-top: 1px solid #eee;
+}
+
+.entry-title {
+	display: block;
+	margin: 0;
+	max-width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis; /* if title is longer than container, crop it and put … */
+	white-space: nowrap;
+	word-wrap: normal;
+}
+
+.entry-date {
+	display: block;
+	color: #666;
+	text-transform: uppercase;
+	float: right;
+	font-size: .75em;
+	line-height: 2.25;
+	margin: 0 0 0 1em;
+}
+
+.post-nav,
+.pagination {
+	display: block;
+	line-height: 2;
+	margin: 2em 0;
+	text-align: left;
+}
+
+.previous-post {
+	text-align: left;
+}
+
+.next-post {
+	text-align: right;
+}
+
+.post-nav a {
+	display: block;
+	max-width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	word-wrap: normal;
+}
+
+/* for pagination */
+
+.separator {
+	color: #999;
+}
+
+/* footer *********************************************************************/
+
+.site-footer {
+	padding: 2em 0;
+	text-align: center;
+}
+
+.copyright {
+	color: #666;
+	margin: 2em 0;
+	text-align: center;
+}
+
+/* post ***********************************************************************/
+
+.post {
+	margin-bottom: 4em;
+}
+
+.post-meta {
+	color: #666;
+	font-size: .8888em; /* 16px / 18px */
+	line-height: 2em;
+	margin-bottom: 1em;
+	max-width: 100%;
+	font-style: italic;
+}
+
+.post-date {
+	color: #666;
+	display: block;
+	margin: 0 0 2em 0;
+	text-align: center;
+}
+
+.post-categories,
+.post-tags {
+	display: inline;
+}
+
+.post-category,
+.post-tag {
+	color: #069;
+	display: inline;
+}
+
+.post-tag {
+	text-decoration: underline;
+}
+
+.post-tag:hover {
+	text-decoration: none;
+}
+
+.tag-list {
+	display: block;
+	list-style: none;
+}
+
+.tag-list li {
+	display: inline;
+}
+
+.tag-list li:after {
+	color: #666;
+	content: " / ";
+}
+
+.tag-list li:last-child:after {
+	content: "";
+}
+
+/* syntax higlighting *********************************************************/
+
+.highlight {
+	position: relative;
+}
+
+.highlight pre {
+	padding: 3em 1em 1em 1em;
+}
+
+code[class*="language-"] {
+	direction: ltr;
+	overflow: auto;
+	text-align: left;
+	white-space: pre;
+	word-break: normal;
+	word-spacing: normal;
+	word-wrap: normal;
+}
+
+/* show stripe with language type for more information */
+
+code[class*="language-"]:before {
+	background: #333;
+	content: attr(data-lang);
+	color: #eee;
+	font-family: "Roboto", sans-serif;
+	font-size: 1em;
+	left: 0;
+	line-height: 2em;
+	position: absolute;
+	text-indent: 1em;
+	text-transform: uppercase;
+	top: 0;
+	width: 100%;
+}
+
+/* crappy class names, but needed for syntax highlight */
+
+.c     { color: #998; font-style: italic }
+.err   { color: #a61717; background-color: #e3d2d2 }
+.k     { font-weight: bold }
+.o     { font-weight: bold }
+.cm    { color: #998; font-style: italic }
+.cp    { color: #999; font-weight: bold }
+.c1    { color: #998; font-style: italic }
+.cs    { color: #999; font-weight: bold; font-style: italic }
+.gd    { color: #000; background-color: #fdd }
+.gd .x { color: #000; background-color: #faa }
+.ge    { font-style: italic }
+.gr    { color: #a00 }
+.gh    { color: #999 }
+.gi    { color: #000; background-color: #dfd }
+.gi .x { color: #000; background-color: #afa }
+.go    { color: #888 }
+.gp    { color: #555 }
+.gs    { font-weight: bold }
+.gu    { color: #aaa }
+.gt    { color: #a00 }
+.kc    { font-weight: bold }
+.kd    { font-weight: bold }
+.kp    { font-weight: bold }
+.kr    { font-weight: bold }
+.kt    { color: #458; font-weight: bold }
+.m     { color: #099 }
+.s     { color: #d14 }
+.na    { color: #008080 }
+.nb    { color: #0086B3 }
+.nc    { color: #458; font-weight: bold }
+.no    { color: #008080 }
+.ni    { color: #800080 }
+.ne    { color: #900; font-weight: bold }
+.nf    { color: #900; font-weight: bold }
+.nn    { color: #555 }
+.nt    { color: #000080 }
+.nv    { color: #008080 }
+.ow    { font-weight: bold }
+.w     { color: #bbb }
+.mf    { color: #099 }
+.mh    { color: #099 }
+.mi    { color: #099 }
+.mo    { color: #099 }
+.sb    { color: #d14 }
+.sc    { color: #d14 }
+.sd    { color: #d14 }
+.s2    { color: #d14 }
+.se    { color: #d14 }
+.sh    { color: #d14 }
+.si    { color: #d14 }
+.sx    { color: #d14 }
+.sr    { color: #009926 }
+.s1    { color: #d14 }
+.ss    { color: #990073 }
+.bp    { color: #999 }
+.vc    { color: #008080 }
+.vg    { color: #008080 }
+.vi    { color: #008080 }
+.il    { color: #099 }
+
+/* misc ***********************************************************************/
+
+.no-content {
+	font-size: 2em;
+	font-weight: lighter;
+	text-align: center;
+}
+
+.no-content span {
+	display: block;
+	margin-bottom: .5em;
+}
+
+.error-404 {
+	color: #069;
+	display: block;
+	font-size: 3em;
+	font-weight: bold;
+}
+
+/* media queries **************************************************************/
+
+@media only screen and (max-device-width: 600px) {
+
+	html {
+		font-size: 16px; /* smaller text for lower resolutions */
+	}
+
+	.entry-date {
+		float: none; /* above entry title, more room */
+		margin: 0;
+	}
+
+	.post-categories,
+	.post-tags {
+		display: block;
+	}
+
+}
