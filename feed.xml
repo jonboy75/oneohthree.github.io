@@ -5,47 +5,9 @@
     <description>theme for personal blogs, focused on minimalism and simplicity</description>
     <link>http://oneohthree.github.io/</link>
     <atom:link href="http://oneohthree.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 12 Dec 2014 13:29:38 -0500</pubDate>
-    <lastBuildDate>Fri, 12 Dec 2014 13:29:38 -0500</lastBuildDate>
+    <pubDate>Fri, 12 Dec 2014 13:31:51 -0500</pubDate>
+    <lastBuildDate>Fri, 12 Dec 2014 13:31:51 -0500</lastBuildDate>
     <generator>Jekyll v2.5.2</generator>
-    
-      <item>
-        <title>Hasta pronto sudo, bienvenidos nuevos proyectos</title>
-        <description>&lt;p&gt;Desde la concepción de este blog he tenido como máxima, generar contenidos 
-interesantes, útiles y debatibles. Gracias a tan poco tiempo de vida de este 
-espacio he aprendido &lt;strong&gt;un montón&lt;/strong&gt; de cosas nuevas y me he visto obligado a 
-aumentar mis habilidades de redacción, investigación y otras. Hasta hoy he sido 
-capaz de llevar varias cosas simúltáneamente sin dejar de atender otras también 
-importantes.&lt;/p&gt;
-
-&lt;p&gt;Hoy me siento más entusiasmado que nunca, ha surgido el proyecto 
-&lt;strong&gt;más importante&lt;/strong&gt; de mi vida, mi primera hija, muy próxima a nacer. No es un 
-secreto que un hijo consume &lt;strong&gt;todo el tiempo&lt;/strong&gt; de los padres y sin reproches, 
-es y debe ser para ellos. Es hora de girar el rumbo, ese que eventualmente la 
-mayoría tomamos y que nunca dejamos.&lt;/p&gt;
-
-&lt;p&gt;Dejaré el contenido íntegro a modo de referencia y archivo, eventualmente 
-deshabilitaré los comentarios &amp;mdash;será imposible mantenerlos&amp;mdash; y si se cumplen 
-los términos de Reflejos, dentro de unos pocos meses el blog se archivará y 
-dejará de existir (tengo mi xml con todo el contenido).&lt;/p&gt;
-
-&lt;p&gt;Si el tiempo lo permite y no se extinguen las ganas de compartir, quizá haya 
-otro sudo, quién sabe en otro hosting, a lo mejor no con WordPress, o 
-definitivamente este sea el fin. Sea cual sea el futuro, me llevo la 
-satisfacción de que a varios les ha servido lo que aquí he compartido.&lt;/p&gt;
-</description>
-        <pubDate>Mon, 08 Dec 2014 23:38:00 -0500</pubDate>
-        <link>http://oneohthree.github.io/articles/nuevos-proyectos.html</link>
-        <guid isPermaLink="true">http://oneohthree.github.io/articles/nuevos-proyectos.html</guid>
-        
-        <category>proyectos</category>
-        
-        <category>test</category>
-        
-        
-        <category>articles</category>
-        
-      </item>
     
       <item>
         <title>lorem-ipsum</title>
