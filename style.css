@@ -102,7 +102,11 @@ a {
 /* don't like visited links color change, but need accessibility */
 
 a:visited {
-	color: #036;
+	color: #069;
+}
+
+article a:visited {
+	color: #069;
 }
 
 a:active,
