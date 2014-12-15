@@ -1,36 +1,28 @@
 <IfModule mod_rewrite.c>
 
-RewriteBase /
+	#RewriteBase /
 
-# handle file versioning
+	# handle file versioning
 	RewriteEngine On
+
 	RewriteCond %{REQUEST_FILENAME} !-f
 	RewriteRule ^(.+)\.(\d+)\.(bmp|css|cur|gif|ico|jpe?g|js|png|svgz?|webp)$ $1.$3 [L]
 
-# remove .html
-#	RewriteCond %{REQUEST_FILENAME} !-f
-#	RewriteCond %{REQUEST_FILENAME} !-d
-#	RewriteRule ^(.+) $1.html [L]
+	ErrorDocument 404 /404.html
 
-ErrorDocument 404 /404.html
+	#RewriteCond %{REQUEST_FILENAME}.html -f
+	#RewriteRule !^(.+)\.html$ %{REQUEST_FILENAME}.html [L]
 
-RewriteCond  %{DOCUMENT_ROOT}/$1.html  -f
-RewriteRule  ^(.+)(\.html)?/$         /$1       [R=301,L]
+	#RewriteCond %{REQUEST_FILENAME}.xml -f
+	#RewriteRule !^(.+)\.xml$ %{REQUEST_FILENAME}.xml [L]
 
-RewriteCond  %{DOCUMENT_ROOT}/$1       -d
-RewriteCond  %{DOCUMENT_ROOT}/$1.html  !-f
-RewriteRule  ^(.+[^/])$               /$1/      [R=301,L]
 
-RewriteCond  %{DOCUMENT_ROOT}/$1.html  -f
-RewriteRule  ^(.+)$                    /$1.html  [L,NC]
+	RewriteCond %{REQUEST_FILENAME} !-d 
+	RewriteCond %{REQUEST_FILENAME}\.html -f 
+	RewriteRule ^(.*)$ $1.html
 
-RewriteCond  %{DOCUMENT_ROOT}/$1.xml  -f
-RewriteRule  ^(.+)(\.xml)?/$         /$1       [R=301,L]
+	RewriteCond %{REQUEST_FILENAME} !-d 
+	RewriteCond %{REQUEST_FILENAME}\.xml -f 
+	RewriteRule ^(.*)$ $1.xml
 
-RewriteCond  %{DOCUMENT_ROOT}/$1       -d
-RewriteCond  %{DOCUMENT_ROOT}/$1.xml  !-f
-RewriteRule  ^(.+[^/])$               /$1/      [R=301,L]
-
-RewriteCond  %{DOCUMENT_ROOT}/$1.xml  -f
-RewriteRule  ^(.+)$                    /$1.xml  [L,NC]
 </IfModule>

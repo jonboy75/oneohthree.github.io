@@ -5,9 +5,79 @@
     <description>theme for personal blogs, focused on minimalism and simplicity</description>
     <link>http://oneohthree.github.io/</link>
     <atom:link href="http://oneohthree.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 12 Dec 2014 14:39:27 -0500</pubDate>
-    <lastBuildDate>Fri, 12 Dec 2014 14:39:27 -0500</lastBuildDate>
+    <pubDate>Mon, 15 Dec 2014 08:10:17 -0500</pubDate>
+    <lastBuildDate>Mon, 15 Dec 2014 08:10:17 -0500</lastBuildDate>
     <generator>Jekyll v2.5.2</generator>
+    
+      <item>
+        <title>testing</title>
+        <description>&lt;p&gt;En innumerables ocasiones hemos recibido una notificación a través del correo electrónico con remitente &lt;code&gt;noreply@foo.tld&lt;/code&gt; esto no es más que un buzón de correo que no permite respuestas (duh!). Esta funcionalidad se puede implementar a través de varios métodos, sin embargo en esta entrada comparto con ustedes uno de ellos con la explicación &amp;mdash;y justificación&amp;mdash;. Si alguien tiene otro método &lt;strong&gt;más efectivo&lt;/strong&gt; sería provechoso para todos que se compartiera.&lt;/p&gt;
+
+&lt;h2&gt;Descripción del método&lt;/h2&gt;
+
+&lt;p&gt;El método es bien sencillo: cuando &lt;a href=&quot;http://sudo.cubava.cu/tag/postfix/&quot; title=&quot;Postfix&quot;&gt;Postfix&lt;/a&gt; reciba un mensaje con el destinatario &lt;code&gt;noreply@localdomain&lt;/code&gt;, lo deseche. De este modo se asegura que el mensaje nunca llegue a la cola de Postfix y el remitente &amp;mdash;que a pesar de todo lo envía&amp;mdash; no recibirá ninguna notificación/bounce de que el mensaje fue desechado.&lt;/p&gt;
+
+&lt;h2&gt;Cómo Postfix recibe el correo&lt;/h2&gt;
+
+&lt;p&gt;Para entender el proceso un poco más &lt;i&gt;lowlevel&lt;/i&gt; sería bueno describir una parte del viaje de un mensaje en un servidor Postfix. El siguiente esquema describe lo que nos compete: la recepción del correo &lt;sup&gt;&lt;a href=&quot;#overview&quot;&gt;[1]&lt;/a&gt;&lt;/sup&gt;. &lt;/p&gt;
+
+&lt;pre&gt;                     trivial-
+   Network → smtpd   rewrite
+                   ↘    ↕
+   Network → qmqpd → cleanup → incoming
+                   ↗
+            pickup ← maildrop
+                        ↑
+  Local → sendmail → postdrop&lt;/pre&gt;
+
+&lt;p&gt;En este método la parte que nos interesa es cuando el mensaje entra a través del servidor smtp, en este punto Postfix envía el mensaje al demonio &lt;em&gt;cleanup&lt;/em&gt; y este lo pone en la cola de mensajes recibidos. Sin embargo, no queremos que el mensaje ni siquiera llegue hasta el &lt;em&gt;cleanup&lt;/em&gt;, simplemente lo rechazamos a través del demonio &lt;em&gt;smtpd&lt;/em&gt; &lt;sup&gt;&lt;a href=&quot;#smtp&quot;&gt;[2]&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+
+&lt;h2&gt;El método&lt;/h2&gt;
+
+&lt;p&gt;La implementación de este método es muy fácil. En la configuración principal de Postfix (&lt;code&gt;/etc/postfix/main.cf&lt;/code&gt;) incluir la siguiente línea para el chequeo del acceso &lt;sup&gt;&lt;a href=&quot;#access&quot;&gt;[3]&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;    smtpd_recipient_restrictions = 
+    ...
+    check_recipient_access = hash:/etc/postfix/noreply,
+    ...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Posteriormente en el archivo &lt;code&gt;/etc/postfix/noreply&lt;/code&gt; agregar la línea:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;noreply@localdomain        DISCARD
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Por último, generar la base de datos con el par recipiente, acceso:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;postmap /etc/postfix/noreply
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;¿Por qué DISCARD? Simplemente porque Postfix silenciosamente desecha el mensaje sin notificar a nadie que es el efecto deseado.&lt;/p&gt;
+
+&lt;h2&gt;Comprobaciones&lt;/h2&gt;
+
+&lt;p&gt;Cuando se envía un mensaje a &lt;code&gt;noreply@localdomain&lt;/code&gt; Postfix debe generar un log como el siguiente:&lt;/p&gt;
+
+&lt;pre&gt;Nov 18 12:34:27 mail postfix/smtpd[2384]: &lt;b&gt;NOQUEUE&lt;/b&gt;: discard: RCPT from unknown[123.456.678.90]: &amp;lt;noreply@localdomain&amp;gt;: Recipient address triggers &lt;b&gt;DISCARD&lt;/b&gt; action; from=&amp;lt;johndoe@foo.bar.tld&amp;gt; to=&amp;lt;noreply@localdomain&amp;gt; proto=ESMTP helo=&amp;lt;foo.bar.tld&amp;gt;&lt;/pre&gt;
+
+&lt;p&gt;Nótese en el log NOQUEUE y DISCARD (en negritas), estas indican que el mensaje nunca llegó a la cola y que fue desechado respectivamente.&lt;/p&gt;
+
+&lt;h2&gt;Referencias&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a id=&quot;overview&quot; href=&quot;http://www.postfix.org/OVERVIEW.html&quot; title=&quot;http://www.postfix.org/OVERVIEW.html&quot; target=&quot;_blank&quot;&gt;http://www.postfix.org/OVERVIEW.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a id=&quot;smtp&quot; href=&quot;http://www.postfix.org/smtpd.8.html&quot; title=&quot;http://www.postfix.org/smtpd.8.html&quot; target=&quot;_blank&quot;&gt;http://www.postfix.org/smtpd.8.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a id=&quot;access&quot; href=&quot;http://www.postfix.org/access.5.html&quot; title=&quot;http://www.postfix.org/access.5.html&quot; target=&quot;_blank&quot;&gt;http://www.postfix.org/access.5.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Sun, 14 Dec 2014 22:26:00 -0500</pubDate>
+        <link>http://oneohthree.github.io/articles/testing.html</link>
+        <guid isPermaLink="true">http://oneohthree.github.io/articles/testing.html</guid>
+        
+        <category>testing</category>
+        
+        <category>jekyll</category>
+        
+        <category>github</category>
+        
+        
+        <category>articles</category>
+        
+      </item>
     
       <item>
         <title>Welcome GitHub</title>
@@ -79,6 +149,11 @@ nesciunt.&lt;/p&gt;
 &lt;li&gt;item3&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;http://oneohthree.github.io/assets/screenshot.png&quot; alt=&quot;xterm&quot;&gt;
+&lt;figcaption&gt;Lorem ipsum dolor sit amet, consectetur.&lt;/figcaption&gt;
+&lt;/figure&gt;
 
 &lt;h2&gt;A nice hr&lt;/h2&gt;
 
