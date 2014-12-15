@@ -688,6 +688,23 @@ code[class*="language-"]:before {
 	text-align: center;
 }
 
+.go-top {
+	/*display: block;*/
+/*	margin: 0 auto;*/
+	margin: 2em 0;
+	text-align: center;
+/*	background-color: #111;
+	display: inline-block;
+	width: 6em;
+	height: 6em;
+	line-height: 6em;
+	transition: background-color .3s ease;*/
+}
+
+.go-top:hover {
+	/*background-color: #069;*/
+}
+
 .no-content {
 	font-size: 2em;
 	font-weight: lighter;
