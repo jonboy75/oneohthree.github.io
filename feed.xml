@@ -5,8 +5,8 @@
     <description>theme for personal blogs, focused on minimalism and simplicity</description>
     <link>http://oneohthree.github.io/</link>
     <atom:link href="http://oneohthree.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 15 Dec 2014 10:05:35 -0500</pubDate>
-    <lastBuildDate>Mon, 15 Dec 2014 10:05:35 -0500</lastBuildDate>
+    <pubDate>Mon, 05 Jan 2015 09:06:54 -0500</pubDate>
+    <lastBuildDate>Mon, 05 Jan 2015 09:06:54 -0500</lastBuildDate>
     <generator>Jekyll v2.5.2</generator>
     
       <item>
@@ -35,20 +35,17 @@
 &lt;h2&gt;El método&lt;/h2&gt;
 
 &lt;p&gt;La implementación de este método es muy fácil. En la configuración principal de Postfix (&lt;code&gt;/etc/postfix/main.cf&lt;/code&gt;) incluir la siguiente línea para el chequeo del acceso &lt;sup&gt;&lt;a href=&quot;#access&quot;&gt;[3]&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
-
-&lt;pre&gt;smtpd_recipient_restrictions = 
-...
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;    smtpd_recipient_restrictions = 
+    ...
     check_recipient_access = hash:/etc/postfix/noreply,
-...&lt;/pre&gt;
-
+    ...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Posteriormente en el archivo &lt;code&gt;/etc/postfix/noreply&lt;/code&gt; agregar la línea:&lt;/p&gt;
-
-&lt;pre&gt;noreply@localdomain        DISCARD&lt;/pre&gt;
-
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;noreply@localdomain        DISCARD
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Por último, generar la base de datos con el par recipiente, acceso:&lt;/p&gt;
-
-&lt;pre&gt;postmap /etc/postfix/noreply&lt;/pre&gt;
-
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;postmap /etc/postfix/noreply
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;¿Por qué DISCARD? Simplemente porque Postfix silenciosamente desecha el mensaje sin notificar a nadie que es el efecto deseado.&lt;/p&gt;
 
 &lt;h2&gt;Comprobaciones&lt;/h2&gt;
@@ -71,20 +68,9 @@
         <link>http://oneohthree.github.io/articles/testing.html</link>
         <guid isPermaLink="true">http://oneohthree.github.io/articles/testing.html</guid>
         
-        <category>postfix</category>
+        <category>testing</category>
         
-        
-        <category>articles</category>
-        
-      </item>
-    
-      <item>
-        <title>Welcome GitHub</title>
-        <description>&lt;p&gt;Just testing Jekull along GitHub.&lt;/p&gt;
-</description>
-        <pubDate>Fri, 12 Dec 2014 13:36:00 -0500</pubDate>
-        <link>http://oneohthree.github.io/articles/welcome-github.html</link>
-        <guid isPermaLink="true">http://oneohthree.github.io/articles/welcome-github.html</guid>
+        <category>jekyll</category>
         
         <category>github</category>
         
@@ -108,7 +94,7 @@
 &lt;p&gt;Lorem ipsum &lt;em&gt;dolor&lt;/em&gt; sit amet, &lt;a href=&quot;http://foo.tld&quot; title=&quot;foo&quot;&gt;consectetur&lt;/a&gt; adipisicing elit. &lt;em&gt;Reprehenderit&lt;/em&gt; minima 
 deserunt, inventore &amp;mdash;architecto&amp;mdash; corporis &lt;code&gt;earum&lt;/code&gt; maxime iusto empora ea! Quo 
 suscipit &amp;ndash;pariatur&amp;ndash; excepturi, &lt;strong&gt;repellendus&lt;/strong&gt; rerum. Temporibus laudantium corrupti, 
-consectetur, &amp;ldquo;error&amp;rdquo; nisi repellat exercitationem cum &lt;strong&gt;&lt;em&gt;possimus&lt;/em&gt;&lt;/strong&gt; dolor dolores 
+consectetur, &amp;ldquo;error&amp;rdquo; nisi repellat &lt;mark&gt;exercitationem&lt;/mark&gt; cum &lt;strong&gt;&lt;em&gt;possimus&lt;/em&gt;&lt;/strong&gt; dolor dolores 
 laborum accusantium tenetur quisquam. Quam culpa quis illum, quisquam sapiente
 explicabo ea voluptatum&amp;hellip;&lt;/p&gt;
 

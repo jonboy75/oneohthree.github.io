@@ -7,25 +7,18 @@
 	<meta name="description" content="En innumerables ocasiones hemos recibido una notificación a través del correo electrónico con remitente noreply@foo.tld esto no es más que un buzón de correo...">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://oneohthree.github.io/style.css">
-	<!-- <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto%3A300%2C400%2C700%2C300italic%2C400italic%2C700italic"> -->
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto%3A400%2C700%2C400italic%2C700italic">
 	<link rel="canonical" href="http://oneohthree.github.io/articles/testing">
 	<link rel="alternate" type="application/atom+xml" title="minimum" href="http://oneohthree.github.io/feed">
 </head>
 <body>
 <header class="site-header">
-	<nav class="menu">
-		<div class="menu-wrapper">
-				<a class="page-link" href="/about/">About</a>
-				<a class="page-link" href="/topics/">Topics</a>
-			<a href="/feed">RSS</a>
-		</div>
-	</nav>
-	<a class="site-logo" href="http://oneohthree.github.io" title="Keep reading more stuff" rel="home"><img src="/assets/images/logo.svg" alt="logo"></a>
+	<a class="site-title" href="http://oneohthree.github.io" title="Keep reading more stuff" rel="home">minimum</a>
 </header>
 <div class="content" role="main">
 <article class="post">
 	<header class="post-header">
-		<time class="post-date" date="2014-12-14T22:26:00-05:00">Dec 14, 2014</time>
+		<time class="post-date" date="2014-12-14T22:26:00-05:00">December 14, 2014</time>
 		<h1 class="post-title">Crear una dirección noreply con Postfix</h1>
 	</header>
 	<p>En innumerables ocasiones hemos recibido una notificación a través del correo electrónico con remitente <code>noreply@foo.tld</code> esto no es más que un buzón de correo que no permite respuestas (duh!). Esta funcionalidad se puede implementar a través de varios métodos, sin embargo en esta entrada comparto con ustedes uno de ellos con la explicación &mdash;y justificación&mdash;. Si alguien tiene otro método <strong>más efectivo</strong> sería provechoso para todos que se compartiera.</p>
@@ -44,14 +37,17 @@
 <p>En este método la parte que nos interesa es cuando el mensaje entra a través del servidor smtp, en este punto Postfix envía el mensaje al demonio <em>cleanup</em> y este lo pone en la cola de mensajes recibidos. Sin embargo, no queremos que el mensaje ni siquiera llegue hasta el <em>cleanup</em>, simplemente lo rechazamos a través del demonio <em>smtpd</em> <sup><a href="#smtp">[2]</a></sup>.</p>
 <h2>El método</h2>
 <p>La implementación de este método es muy fácil. En la configuración principal de Postfix (<code>/etc/postfix/main.cf</code>) incluir la siguiente línea para el chequeo del acceso <sup><a href="#access">[3]</a></sup>.</p>
-<pre>smtpd_recipient_restrictions = 
-...
+<div class="highlight"><pre><code class="language-text" data-lang="text">    smtpd_recipient_restrictions = 
+    ...
     check_recipient_access = hash:/etc/postfix/noreply,
-...</pre>
+    ...
+</code></pre></div>
 <p>Posteriormente en el archivo <code>/etc/postfix/noreply</code> agregar la línea:</p>
-<pre>noreply@localdomain        DISCARD</pre>
+<div class="highlight"><pre><code class="language-text" data-lang="text">noreply@localdomain        DISCARD
+</code></pre></div>
 <p>Por último, generar la base de datos con el par recipiente, acceso:</p>
-<pre>postmap /etc/postfix/noreply</pre>
+<div class="highlight"><pre><code class="language-text" data-lang="text">postmap /etc/postfix/noreply
+</code></pre></div>
 <p>¿Por qué DISCARD? Simplemente porque Postfix silenciosamente desecha el mensaje sin notificar a nadie que es el efecto deseado.</p>
 <h2>Comprobaciones</h2>
 <p>Cuando se envía un mensaje a <code>noreply@localdomain</code> Postfix debe generar un log como el siguiente:</p>
@@ -65,28 +61,29 @@
 </ol>
 	<footer class="post-footer">
 		<div class="post-meta">
-			<div class="post-categories">
-				<span>Posted in </span>
+			<p>Posted in
 				<span class="post-category">articles</span>
-			</div>
-			<div class="post-tags">
-				<span>about </span>
-				<a class="post-tag" href="http://oneohthree.github.io/tags/postfix">postfix</a>
-			</div>
+				about
+				<a class="post-tag" href="http://oneohthree.github.io/tags/testing">testing</a>
+				<a class="post-tag" href="http://oneohthree.github.io/tags/jekyll">jekyll</a>
+				<a class="post-tag" href="http://oneohthree.github.io/tags/github">github</a>
+			</p>
 		</div>
 	</footer>
 </article>
-<nav class="post-nav">
-	<a class="previous-post" href="/articles/welcome-github.html" title="Welcome GitHub">&larr; Welcome GitHub</a>
-</nav>
+<!-- <nav class="post-nav">
+	<a class="previous-post" href="/articles/lorem-ipsum.html" title="lorem-ipsum">&larr; lorem-ipsum</a>
+</nav> -->
 <section>
 	<p class="comments-disabled">Comments disabled</p>
 </section>
-<div class="go-top">
-	<a href="#">Go top &uarr;</a>
-</div>
 </div><!-- content -->
 <footer class="site-footer">
+	<nav class="nav">
+		<a class="page-link" href="/about/">About</a>
+		<a class="page-link" href="/topics/">Topics</a>
+		<a href="/feed">RSS</a>
+	</nav>
 	<small class="copyright">Copyright &copy; minimum</small>
 </footer>
 </body>

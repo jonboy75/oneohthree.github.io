@@ -3,24 +3,20 @@
  *
  * Theme for personal blogs, focused on minimalism and simplicity.
  *
- * Copyright (C) 2014 oneohthree (http://sudo.cubava.cu)
+ * Copyright 2014 oneohthree (http://sudo.cubava.cu)
  *
  * License: GNU General Public License v2 or later
- * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ * <http://www.gnu.org/licenses/gpl-2.0.html>
  *
  */
 
-/* reset partly based on normalize by Nicolas Gallagher http://necolas.github.io/normalize.css/ */
+/* reset partly based on normalize http://necolas.github.io/normalize.css/ */
 
 article,
-aside,
-details,
 figcaption,
 figure, 
 footer,
 header,
-main,
-menu,
 nav,
 section {
 	display: block;
@@ -32,14 +28,16 @@ html {
 	font-family: "Roboto", sans-serif;
 	font-style: normal; 
 	font-size: 20px;
+	font-weight: normal;
 	line-height: 1;
+	text-rendering: optimizelegibility;
 	-ms-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%;
 }
 
 body {
 	margin: 0 auto;
-	max-width: 32em; /* 640px/18px */
+	max-width: 32em; /* 640px/20px */
 	padding: 0 1em;
 	word-wrap: break-word;
 }
@@ -48,12 +46,11 @@ body {
 	background: #069;
 	color: #eee;
 }
+
 ::selection { 
 	background: #069;
 	color: #eee;
 }
-
-/* border and padding width not added in container width */
 
 *,
 *:after,
@@ -63,34 +60,33 @@ body {
 	box-sizing: border-box;
 }
 
-/* do you still need > h4 headings? I don't */
-
 h1,
 h2,
 h3,
 h4 {
-	color: #069;
-	font-weight: lighter;
+	color: #111;
+	font-weight: normal;
 	line-height: 1.25em;
 	margin: 0 0 1em 0;
 	text-align: left;
 }
 
 h1 {
-	font-size: 2em; /* 40px/18px */
+	font-size: 2em; /* 40px/20px */
 	text-align: center;
 }
 
 h2 {
-	font-size: 1.4em; /* 28px/18px */
+	font-size: 1.4em; /* 28px/20px */
+	margin: 2em 0 1em 0;
 }
 
 h3 {
-	font-size: 1.1em; /* 22px/18px */
+	font-size: 1.1em; /* 22px/20px */
 }
 
 h4 {
-	font-size: 1em; /* 18px/18px */
+	font-size: 1em; /* 20px/20px */
 }
 
 a {
@@ -100,12 +96,7 @@ a {
 
 a:visited {
 	color: #069;
-}
-
-/* don't like visited links color change, but need accessibility */
-
-article a:visited {
-	color: #069;
+	border-bottom: 1px solid #069;
 }
 
 a:active,
@@ -180,20 +171,12 @@ ul {
 }
 
 ul {
-	list-style-type: disc; /* yeah, I like circles */
-}
-
-ol ol {
-	list-style: lower-alpha;
-}
-
-ul ul {
-	list-style-type: circle;
+	list-style-type: disc;
 }
 
 b,
 strong {
-	font-weight: bold;
+	font-weight: normal;
 }
 
 em,
@@ -240,8 +223,7 @@ dfn {
 }
 
 mark {
-	background: #069;
-	color: #eee;
+	background-color: #ff0;
 }
 
 code,
@@ -251,7 +233,7 @@ samp {
 	background-color: #eee;
 	color: #333;
 	font-family: monospace;
-	font-size: .8em; /* 16px / 18px */
+	font-size: .8em; /* 16px / 20px */
 	overflow: auto;
 /*	white-space: pre;
 	word-break: normal;
@@ -273,12 +255,12 @@ pre {
 }
 
 code {
-	padding: 2px 4px; /* some nice padding for inline code */
+	padding: 2px 4px;
 }
 
 pre code {
 	font-size: 1em; /* keep uniform font size */
-	padding: 0; /* no more nice padding (not inline code) */
+	padding: 0;
 }
 
 table {
@@ -320,7 +302,7 @@ del {
 }
 
 ins {
-	/* underlined by default, don't know what the hell will use to style this */
+	/* fixme */
 }
 
 figure {
@@ -335,7 +317,7 @@ figcaption {
 
 img {
 	border: 0;
-	max-width: 100%; /* nice fluid images */
+	max-width: 100%;
 }
 
 button,
@@ -356,89 +338,47 @@ input::-moz-focus-inner {
 	padding: 0;
 }
 
-/* hide some stuff for browsers but allow screen readers see them */
-
-.screen-reader {
-	left: -9999px;
-	position: absolute;
-	top: -9999px;
-}
-
 /* header *********************************************************************/
 
 .site-header {
-	padding: 4em 0;
 	text-align: center;
 }
-
-.menu {
-	background-color: #111;
-	left: 0;
-	line-height: 2em; /* 40px/20px */
-	position: fixed; /* always visible, easier navigation */
-	top: 0;
-	width: 100%;
-	z-index: 1;
-}
-
-.menu-wrapper {
-	max-width: 32em; /* 640px/18px */
-	margin: 0 auto;
-	text-align: left;
-	padding: 0 1em;
-	position: relative;
-}
-
-.menu a {
-	float: left;
-	font-weight: lighter;
-	padding: 0;
-	margin: 0 2em 0 0;
-	color: #eee;
-	vertical-align: middle;
-}
-
-.menu a:active,
-.menu a:hover,
-.menu a:focus {
-	color: #069;
-	border: none;
-	text-decoration: none;
-}
-
-.site-logo {
-	background-color: #111;
-	border-radius: 100%;
-	display: inline-block;
-	margin: 0;
-	text-align: center;
-	width: 128px;
-	height: 128px;
-	transition: background-color .3s ease; /* some fancy stuff i'm not so square */
-}
-
-.site-logo:hover {
-	background-color: #069;
-}
-
-/* fallback if no site logo is defined */
 
 .site-title {
-	font-size: 3em;
+	color: #069;
+	display: inline-block;
+	font-family: "Lato", sans-serif;
+	font-size: 2em;
+	font-weight: normal;
+	letter-spacing: 4px;
+	line-height: 1.25;
+	margin: 2em 0 2em 0;
+	text-transform: uppercase;
+	text-align: center;
 	transition: color .3s ease;
 }
 
-.site-title:hover {
+.site-title:before,
+.site-title:after {
 	color: #333;
-	border: none;
+	content: "\000B7";
+}
+
+.site-title:hover,
+.site-title:focus,
+.site-title:active {
+	color: #333;
+	border-bottom: none;
 	text-decoration: none;
 }
 
-/*  entry list ****************************************************************/
+/* content ********************************************************************/
 
-.archive-title {
-	color: #333;
+.content {
+	margin-bottom: 3em;
 }
+
+/*  entry list ****************************************************************/
 
 .entry-list {
 	list-style: none;
@@ -446,13 +386,8 @@ input::-moz-focus-inner {
 }
 
 .entry {
-	border-bottom: 1px solid #eee;
 	line-height: 1.5;
 	padding: .75em 0;
-}
-
-.entry:first-of-type {
-	border-top: 1px solid #eee;
 }
 
 .entry-title {
@@ -469,57 +404,10 @@ input::-moz-focus-inner {
 	display: block;
 	color: #666;
 	text-transform: uppercase;
-	float: right;
+	float: left;
 	font-size: .75em;
-	line-height: 2.25;
-	margin: 0 0 0 1em;
-}
-
-.post-nav,
-.pagination {
-	height: 2em;
-	line-height: 2;
-	margin: 2em 0;
-	position: relative;
-}
-
-.previous-post {
-	position: absolute;
-	left: 0;
-	top: 0;
-}
-
-.next-post {
-	position: absolute;
-	right: 0;
-	top: 2em; /* lower than previous post */
-}
-
-.post-nav a {
-	max-width: 100%;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	word-wrap: normal;
-}
-
-/* for pagination */
-
-.separator {
-	color: #999;
-}
-
-/* footer *********************************************************************/
-
-.site-footer {
-	padding: 2em 0;
-	text-align: center;
-}
-
-.copyright {
-	color: #666;
-	margin: 2em 0;
-	text-align: center;
+	line-height: 2.125;
+	margin: 0 1em 0;
 }
 
 /* post ***********************************************************************/
@@ -530,23 +418,20 @@ input::-moz-focus-inner {
 
 .post-meta {
 	color: #666;
-	font-size: .8em; /* 16px / 18px */
-	line-height: 2em;
-	margin-bottom: 1em;
-	max-width: 100%;
+	font-size: .8em; /* 16px / 20px */
 	font-style: italic;
+	line-height: 2em;
+	margin: 2em 0;
+	max-width: 100%;
 }
 
 .post-date {
 	color: #666;
 	display: block;
+	font-size: .875em;
 	margin: 0 0 2em 0;
 	text-align: center;
-}
-
-.post-categories,
-.post-tags {
-	display: inline;
+	text-transform: uppercase;
 }
 
 .post-category,
@@ -556,7 +441,6 @@ input::-moz-focus-inner {
 }
 
 .post-tag {
-	/*text-decoration: underline;*/
 	border-bottom: 1px solid #069;
 }
 
@@ -566,8 +450,8 @@ input::-moz-focus-inner {
 }
 
 .tag-list {
-	display: block;
 	list-style: none;
+	text-align: center;
 }
 
 .tag-list li {
@@ -581,6 +465,53 @@ input::-moz-focus-inner {
 
 .tag-list li:last-child:after {
 	content: "";
+}
+
+/* footer *********************************************************************/
+
+.site-footer {
+	text-align: center;
+}
+
+.nav {
+	display: block;
+	margin: 0 auto;
+	text-align: center;
+	width: 100%;
+}
+
+.nav a {
+	color: #069;
+	display: inline-block;
+	font-size: .75em;
+	text-transform: uppercase;
+	vertical-align: middle;
+}
+
+.nav a:active,
+.nav a:hover,
+.nav a:focus {
+	color: #333;
+	border: none;
+	text-decoration: none;
+}
+
+.nav a:after {
+	color: #666;
+	content: "/";
+	padding: 0 1em;
+}
+
+.nav a:last-child:after {
+	content: "";
+	padding-right: 0;
+}
+
+.copyright {
+	color: #666;
+	display: block;
+	margin: 2em 0;
+	text-align: center;
 }
 
 /* syntax higlighting *********************************************************/
@@ -688,23 +619,6 @@ code[class*="language-"]:before {
 	text-align: center;
 }
 
-.go-top {
-	/*display: block;*/
-/*	margin: 0 auto;*/
-	margin: 2em 0;
-	text-align: center;
-/*	background-color: #111;
-	display: inline-block;
-	width: 6em;
-	height: 6em;
-	line-height: 6em;
-	transition: background-color .3s ease;*/
-}
-
-.go-top:hover {
-	/*background-color: #069;*/
-}
-
 .no-content {
 	font-size: 2em;
 	font-weight: lighter;
@@ -735,10 +649,5 @@ code[class*="language-"]:before {
 		float: none; /* above entry title, more room */
 		margin: 0;
 	}
-
-	/*.post-categories,
-	.post-tags {
-		display: block;
-	}*/
 
 }
