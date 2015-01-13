@@ -1,22 +1,35 @@
 /*
- * minimum 1.0
- *
- * Theme for personal blogs, focused on minimalism and simplicity.
- *
- * Copyright 2014 oneohthree (http://sudo.cubava.cu)
- *
- * License: GNU General Public License v2 or later
- * <http://www.gnu.org/licenses/gpl-2.0.html>
- *
- */
+Theme Name: gris
+Theme URI:
+Author: oneohthree
+Author URI: http://sudo.cubava.cu
+Description: Theme for personal blogs, focused on minimalism and simplicity.
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: light, blue, one-column, responsive-layout, custom-header
+Text Domain: minimum
+*/
 
-/* reset partly based on normalize http://necolas.github.io/normalize.css/ */
+/* reset **********************************************************************/
+
+@font-face {
+  font-family: 'Museo Slab 500';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Museo Slab 500'), local('Museo Slab 500'), url(museo-slab-500.woff) format('woff');
+}
 
 article,
+aside,
+details,
 figcaption,
 figure, 
 footer,
 header,
+hgroup,
+main,
+menu,
 nav,
 section {
 	display: block;
@@ -25,32 +38,34 @@ section {
 html {
 	background-color: #fff;
 	color: #333;
-	font-family: "Roboto", sans-serif;
-	font-style: normal; 
-	font-size: 20px;
+	font-family: "Times Newd Roman", "Georgia", sans-serif;
+	/*font-family: "Open Sans", sans-serif;*/
+	/*font-family: "Roboto", sans-serif;*/
+	font-style: normal;
 	font-weight: normal;
+	font-size: 18px;
 	line-height: 1;
-	text-rendering: optimizelegibility;
 	-ms-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%;
 }
 
 body {
-	margin: 0 auto;
-	max-width: 32em; /* 640px/20px */
-	padding: 0 1em;
-	word-wrap: break-word;
+	border-left: 3px double #ddd;
+	margin: 2.5em 0 2.5em 2.5em;
+	padding: 1em 0 1em 2.5em;
+	max-width: 35.55em;
+	/*margin: 0 auto;*/
 }
 
-::-moz-selection { 
+/*::-moz-selection { 
 	background: #069;
 	color: #eee;
 }
-
 ::selection { 
 	background: #069;
 	color: #eee;
 }
+*/
 
 *,
 *:after,
@@ -62,59 +77,62 @@ body {
 
 h1,
 h2,
-h3,
-h4 {
+h3 {
 	color: #111;
+	font-family: "Museo Slab 500", sans-serif;
+	/*font-family: "Roboto Slab", sans-serif;*/
 	font-weight: normal;
 	line-height: 1.25em;
-	margin: 0 0 1em 0;
-	text-align: left;
-}
-
-h1 {
-	font-size: 2em; /* 40px/20px */
-	text-align: center;
-}
-
-h2 {
-	font-size: 1.4em; /* 28px/20px */
 	margin: 2em 0 1em 0;
 }
 
-h3 {
-	font-size: 1.1em; /* 22px/20px */
+h1 {
+	/*color: #333;*/
+	font-size: 2em;
+	margin: 0 0 .25em 0;
 }
 
-h4 {
-	font-size: 1em; /* 20px/20px */
+h2 {
+	font-size: 1.75em;
+}
+
+h3 {
+	font-size: 3em;
 }
 
 a {
 	color: #069;
+	/*border-bottom: 1px solid #333;*/
 	text-decoration: none;
+	transition: color .2s ease;
 }
 
 a:visited {
-	color: #069;
-	border-bottom: 1px solid #069;
+	/*color: #fff;*/
 }
 
 a:active,
 a:hover,
 a:focus {
 	outline: 0;
-	border-bottom: 1px solid #069;
+	text-decoration: none;
+	color: #333;
 }
 
 p {
-	line-height: 1.75em;
+	line-height: 1.5em;
 	margin: 0 0 1em 0;
+}
+
+article {
+	text-align: left;
 }
 
 blockquote,
 q {
-	color: #999;
-	font-style: italic;
+	color: #666;
+	/*font-size: 1.5em;*/
+	/*font-style: italic;*/
 	quotes: none;
 	-webkit-hyphens: none;
 	-moz-hyphens: none;
@@ -123,34 +141,50 @@ q {
 }
 
 blockquote {
-	border-left: 2px solid #069;
-	line-height: 2em;
+	/*border-left: 2px solid #999;*/
+	line-height: 1.25em;
 	margin: 2em 0;
 	padding: 0 0 0 2em;
+	position: relative;
 }
 
 blockquote p {
-	margin: 0;
+	margin: 1em;
+	text-indent: 0;
 }
 
-blockquote:before,
+/*blockquote:before,*/
 blockquote:after,
-q:before,
+/*q:before,*/
 q:after {
 	content: "";
 	content: none;
 }
 
+blockquote:before,
+q:before {
+	color: #069;
+	content: "\0201C";
+	font-family: "Georgia";
+	font-size: 3.5em;
+	font-style: normal;
+	position: absolute;
+	top: .25em;
+	left: 0;
+	font-weight: bold;
+}
+
 blockquote cite {
-	color: #333;
+	color: #000;
 	display: block;
 	font-style: normal;
 	font-weight: normal;
-	margin-top: 1em;
+	margin: 1em 0 0 1em;
 }
 
 blockquote cite:before {
 	content: "\2013";
+	padding-right: 2px;
 }
 
 blockquote em,
@@ -165,7 +199,7 @@ blockquote b {
 
 ol,
 ul {
-	line-height: 1.75;
+	line-height: 2em;
 	padding: 0;
 	margin: 0 0 1em 1em;
 }
@@ -176,7 +210,7 @@ ul {
 
 b,
 strong {
-	font-weight: normal;
+	font-weight: bold;
 }
 
 em,
@@ -223,7 +257,7 @@ dfn {
 }
 
 mark {
-	background-color: #ff0;
+	background: #ff0;
 }
 
 code,
@@ -233,7 +267,7 @@ samp {
 	background-color: #eee;
 	color: #333;
 	font-family: monospace;
-	font-size: .8em; /* 16px / 20px */
+	font-size: .75em;
 	overflow: auto;
 /*	white-space: pre;
 	word-break: normal;
@@ -259,7 +293,7 @@ code {
 }
 
 pre code {
-	font-size: 1em; /* keep uniform font size */
+	font-size: 1em;
 	padding: 0;
 }
 
@@ -289,12 +323,13 @@ td {
 }
 
 hr {
-	background-color: #ccc;
+	background-color: #ddd;
 	border: none;
 	height: 1px;
-	margin: 2em 0;
+	margin: 2em 4em;
 	-moz-box-sizing: content-box;
 	box-sizing: content-box;
+	/*padding: 0 2em;*/
 }
 
 del {
@@ -306,13 +341,7 @@ ins {
 }
 
 figure {
-	margin: 1em 0;
-	text-align: center;
-}
-
-figcaption {
-	font-size: .75em; /* 18px/20px */
-	margin: .5em 0;
+	margin: 1em 40px;
 }
 
 img {
@@ -320,334 +349,86 @@ img {
 	max-width: 100%;
 }
 
-button,
-input,
-select,
-textarea {
-	color: inherit;
-	font: inherit;
-	margin: 0;
-}
-
-input {
-	line-height: normal;
-}
-
-input::-moz-focus-inner {
-	border: 0;
-	padding: 0;
-}
-
 /* header *********************************************************************/
 
-.site-header {
-	text-align: center;
+.menu {
+	list-style: none;
+	margin: 0 0 3em 0;
 }
 
-.site-title {
+.menu li {
+	display: inline;
+	text-align: center;
+	margin-right: 1em;
+}
+
+.menu li a {
+	color: #999;
+}
+
+.menu li a:hover {
 	color: #069;
-	display: inline-block;
-	font-family: "Lato", sans-serif;
-	font-size: 2em;
-	font-weight: normal;
-	letter-spacing: 4px;
-	line-height: 1.25;
-	margin: 2em 0 2em 0;
-	text-transform: uppercase;
-	text-align: center;
-	transition: color .3s ease;
-}
-
-.site-title:before,
-.site-title:after {
-	color: #333;
-	content: "\000B7";
-}
-
-.site-title:hover,
-.site-title:focus,
-.site-title:active {
-	color: #333;
-	border-bottom: none;
 	text-decoration: none;
 }
 
-/* content ********************************************************************/
-
-.content {
-	margin-bottom: 3em;
+.site-title {
+	/*color: #069;*/
+	display: inline-block;
+	font-family: "Museo Slab 500";
+	font-size: 2em;
+	font-weight: normal;
+	margin-bottom: 1em;
+	text-transform: uppercase;
 }
 
-/*  entry list ****************************************************************/
+.site-title span {
+	display: block;
+}
 
-.entry-list {
+.site-title:hover {
+	color: #000;
+}
+
+.entries {
 	list-style: none;
 	margin: 0;
 }
 
 .entry {
-	line-height: 1.5;
-	padding: .75em 0;
-}
-
-.entry-title {
 	display: block;
-	margin: 0;
+	margin-bottom: 1em;
 	max-width: 100%;
 	overflow: hidden;
-	text-overflow: ellipsis; /* if title is longer than container, crop it and put … */
+	text-overflow: ellipsis;
 	white-space: nowrap;
 	word-wrap: normal;
 }
 
 .entry-date {
 	display: block;
-	color: #666;
-	text-transform: uppercase;
-	float: left;
-	font-size: .75em;
-	line-height: 2.125;
-	margin: 0 1em 0;
-}
-
-/* post ***********************************************************************/
-
-.post {
-	margin-bottom: 4em;
-}
-
-.post-meta {
-	color: #666;
-	font-size: .8em; /* 16px / 20px */
-	font-style: italic;
-	line-height: 2em;
-	margin: 2em 0;
-	max-width: 100%;
 }
 
 .post-date {
 	color: #666;
-	display: block;
-	font-size: .875em;
-	margin: 0 0 2em 0;
-	text-align: center;
-	text-transform: uppercase;
 }
 
-.post-category,
-.post-tag {
+/*footer:before {
+	background-color: #fff;
 	color: #069;
-	display: inline;
-}
-
-.post-tag {
-	border-bottom: 1px solid #069;
-}
-
-.post-tag:hover {
-	text-decoration: none;
-	border: none;
-}
-
-.tag-list {
-	list-style: none;
-	text-align: center;
-}
-
-.tag-list li {
-	display: inline;
-}
-
-.tag-list li:after {
-	color: #666;
-	content: " / ";
-}
-
-.tag-list li:last-child:after {
-	content: "";
-}
-
-/* footer *********************************************************************/
-
-.site-footer {
-	text-align: center;
-}
-
-.nav {
+	content: "* * *";
 	display: block;
-	margin: 0 auto;
-	text-align: center;
-	width: 100%;
-}
-
-.nav a {
-	color: #069;
-	display: inline-block;
-	font-size: .75em;
-	text-transform: uppercase;
-	vertical-align: middle;
-}
-
-.nav a:active,
-.nav a:hover,
-.nav a:focus {
-	color: #333;
-	border: none;
-	text-decoration: none;
-}
-
-.nav a:after {
-	color: #666;
-	content: "/";
-	padding: 0 1em;
-}
-
-.nav a:last-child:after {
-	content: "";
-	padding-right: 0;
-}
-
-.copyright {
-	color: #666;
-	display: block;
-	margin: 2em 0;
-	text-align: center;
-}
-
-/* syntax higlighting *********************************************************/
-
-.highlight {
-	position: relative;
-}
-
-.highlight pre {
-	padding: 3em 1em 1em 1em;
-}
-
-code[class*="language-"] {
-	direction: ltr;
-	overflow: auto;
-	text-align: left;
-	white-space: pre;
-	word-break: normal;
-	word-spacing: normal;
-	word-wrap: normal;
-}
-
-/* show stripe with language type for more information */
-
-code[class*="language-"]:before {
-	background: #333;
-	content: attr(data-lang);
-	color: #eee;
-	font-family: "Roboto", sans-serif;
-	font-size: 1em;
-	left: 0;
-	line-height: 2em;
-	position: absolute;
-	text-indent: 1em;
-	text-transform: uppercase;
-	top: 0;
-	width: 100%;
-}
-
-/* crappy class names, but needed for syntax highlight */
-
-.c     { color: #998; font-style: italic }
-.err   { color: #a61717; background-color: #e3d2d2 }
-.k     { font-weight: bold }
-.o     { font-weight: bold }
-.cm    { color: #998; font-style: italic }
-.cp    { color: #999; font-weight: bold }
-.c1    { color: #998; font-style: italic }
-.cs    { color: #999; font-weight: bold; font-style: italic }
-.gd    { color: #000; background-color: #fdd }
-.gd .x { color: #000; background-color: #faa }
-.ge    { font-style: italic }
-.gr    { color: #a00 }
-.gh    { color: #999 }
-.gi    { color: #000; background-color: #dfd }
-.gi .x { color: #000; background-color: #afa }
-.go    { color: #888 }
-.gp    { color: #555 }
-.gs    { font-weight: bold }
-.gu    { color: #aaa }
-.gt    { color: #a00 }
-.kc    { font-weight: bold }
-.kd    { font-weight: bold }
-.kp    { font-weight: bold }
-.kr    { font-weight: bold }
-.kt    { color: #458; font-weight: bold }
-.m     { color: #099 }
-.s     { color: #d14 }
-.na    { color: #008080 }
-.nb    { color: #0086B3 }
-.nc    { color: #458; font-weight: bold }
-.no    { color: #008080 }
-.ni    { color: #800080 }
-.ne    { color: #900; font-weight: bold }
-.nf    { color: #900; font-weight: bold }
-.nn    { color: #555 }
-.nt    { color: #000080 }
-.nv    { color: #008080 }
-.ow    { font-weight: bold }
-.w     { color: #bbb }
-.mf    { color: #099 }
-.mh    { color: #099 }
-.mi    { color: #099 }
-.mo    { color: #099 }
-.sb    { color: #d14 }
-.sc    { color: #d14 }
-.sd    { color: #d14 }
-.s2    { color: #d14 }
-.se    { color: #d14 }
-.sh    { color: #d14 }
-.si    { color: #d14 }
-.sx    { color: #d14 }
-.sr    { color: #009926 }
-.s1    { color: #d14 }
-.ss    { color: #990073 }
-.bp    { color: #999 }
-.vc    { color: #008080 }
-.vg    { color: #008080 }
-.vi    { color: #008080 }
-.il    { color: #099 }
-
-/* misc ***********************************************************************/
-
-.comments-disabled {
-	text-align: center;
-}
-
-.no-content {
-	font-size: 2em;
-	font-weight: lighter;
-	text-align: center;
-}
-
-.no-content span {
-	display: block;
-	margin-bottom: .5em;
-}
-
-.error-404 {
-	color: #069;
-	display: block;
-	font-size: 3em;
+	font-size: 1.25em;
 	font-weight: bold;
-}
+	text-align: center;
+}*/
 
-/* media queries **************************************************************/
+/* media queries *************************************************************/
 
 @media only screen and (max-device-width: 600px) {
 
-	html {
-		font-size: 16px; /* smaller text for lower resolutions */
+	body {
+		border: none;
+		margin: 1em;
+		padding: 0;
 	}
-
-	.entry-date {
-		float: none; /* above entry title, more room */
-		margin: 0;
-	}
-
 }
