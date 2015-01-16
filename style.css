@@ -1,23 +1,11 @@
-/*
-Theme Name: gris
-Theme URI:
-Author: oneohthree
-Author URI: http://sudo.cubava.cu
-Description: Theme for personal blogs, focused on minimalism and simplicity.
-Version: 1.0
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: light, blue, one-column, responsive-layout, custom-header
-Text Domain: minimum
-*/
-
+/* jasmint */
 /* reset **********************************************************************/
 
 @font-face {
-  font-family: 'Museo Slab 500';
-  font-style: normal;
-  font-weight: normal;
-  src: local('Museo Slab 500'), local('Museo Slab 500'), url(museo-slab-500.woff) format('woff');
+	font-family: 'Museo Slab 500';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Museo Slab 500'), local('Museo Slab 500'), url(museo-slab-500.woff) format('woff');
 }
 
 article,
@@ -27,8 +15,6 @@ figcaption,
 figure, 
 footer,
 header,
-hgroup,
-main,
 menu,
 nav,
 section {
@@ -40,7 +26,6 @@ html {
 	color: #333;
 	font-family: "Georgia", serif;
 	/*font-family: "Open Sans", sans-serif;*/
-	/*font-family: "Roboto", sans-serif;*/
 	font-style: normal;
 	font-weight: normal;
 	font-size: 18px;
@@ -53,11 +38,17 @@ body {
 	border-left: 3px double #ddd;
 	margin: 2.5em 0 2.5em 2.5em;
 	padding: 1em 0 1em 2.5em;
-	max-width: 35.55em;
+	max-width: 34.44em;
 	/*margin: 0 auto;*/
 }
 
-/*::-moz-selection { 
+body:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+::-moz-selection { 
 	background: #069;
 	color: #eee;
 }
@@ -65,7 +56,7 @@ body {
 	background: #069;
 	color: #eee;
 }
-*/
+
 
 *,
 *:after,
@@ -79,7 +70,7 @@ h1,
 h2,
 h3 {
 	color: #111;
-	font-family: "Museo Slab 500", sans-serif;
+	/*font-family: "Museo Slab 500", sans-serif;*/
 	/*font-family: "Roboto Slab", sans-serif;*/
 	font-weight: normal;
 	line-height: 1.25em;
@@ -87,22 +78,20 @@ h3 {
 }
 
 h1 {
-	/*color: #333;*/
 	font-size: 2em;
-	margin: 0 0 .25em 0;
+	margin: 0 0 .5em 0;
 }
 
 h2 {
-	font-size: 1.75em;
+	font-size: 1.5em;
 }
 
 h3 {
-	font-size: 3em;
+	font-size: 1.25em;
 }
 
 a {
 	color: #069;
-	/*border-bottom: 1px solid #333;*/
 	text-decoration: none;
 	transition: color .2s ease;
 }
@@ -114,9 +103,10 @@ a:visited {
 a:active,
 a:hover,
 a:focus {
+	color: #333;
+	border: none;
 	outline: 0;
 	text-decoration: none;
-	color: #333;
 }
 
 p {
@@ -165,7 +155,7 @@ blockquote:before,
 q:before {
 	color: #069;
 	content: "\0201C";
-	font-family: "Georgia";
+	font-family: "Georgia", serif;
 	font-size: 3.5em;
 	font-style: normal;
 	position: absolute;
@@ -199,7 +189,7 @@ blockquote b {
 
 ol,
 ul {
-	line-height: 2em;
+	line-height: 1.5em;
 	padding: 0;
 	margin: 0 0 1em 1em;
 }
@@ -257,7 +247,7 @@ dfn {
 }
 
 mark {
-	background: #ff0;
+	background: #ff6;
 }
 
 code,
@@ -286,6 +276,9 @@ pre {
 	line-height: 1.75;
 	margin: 1em 0;
 	padding: 1em;
+
+		/*background-color: #fff;*/
+	border-left: 2px solid #069;
 }
 
 code {
@@ -356,23 +349,18 @@ img {
 	margin: 0 0 3em 0;
 }
 
-.menu li {
-	display: inline;
-	text-align: center;
+.menu a {
+	color: #999;
 	margin-right: 1em;
 }
 
-.menu li a {
-	color: #999;
-}
-
-.menu li a:hover {
+.menu a:hover {
 	color: #069;
 	text-decoration: none;
 }
 
 .site-title {
-	/*color: #069;*/
+	border: none;
 	display: inline-block;
 	font-family: "Museo Slab 500";
 	font-size: 2em;
@@ -382,7 +370,7 @@ img {
 }
 
 .site-title span {
-	display: block;
+	/*display: block;*/
 }
 
 .site-title:hover {
@@ -390,24 +378,53 @@ img {
 }
 
 .entries {
-	list-style: none;
 	margin: 0;
 }
 
-.entry {
+.entry-date,
+.entry-title {
+	float: left;
+	font-size: .8888em;
+}
+
+.entry-title {
 	display: block;
-	margin-bottom: 1em;
+	/*margin-bottom: 1em;*/
 	max-width: 100%;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	word-wrap: normal;
+
+	line-height: 2em;
+	width: 85%;
+}
+
+.entry-title:before {
+	color: #ddd;
+	content: "–";
+	margin-right: .5em;
 }
 
 .entry-date {
-	display: block;
+	border-right: 1px solid #ddd;
+	color: #666;
+	padding: 0 1em 0 0em;
+	line-height: 2em;
+	width: 15%;
+	text-align: right;
 }
 
+.entries-year {
+	display: inline-block;
+}
+
+
+.post-meta {
+	color: #666;
+	font-style: italic;
+	margin-top: 3em;
+}
 .post-date {
 	color: #666;
 }
@@ -422,12 +439,73 @@ img {
 	text-align: center;
 }*/
 
+.c     { color: #998; font-style: italic }
+.err   { color: #a61717; background-color: #e3d2d2 }
+.k     { font-weight: bold }
+.o     { font-weight: bold }
+.cm    { color: #998; font-style: italic }
+.cp    { color: #999; font-weight: bold }
+.c1    { color: #998; font-style: italic }
+.cs    { color: #999; font-weight: bold; font-style: italic }
+.gd    { color: #000; background-color: #fdd }
+.gd .x { color: #000; background-color: #faa }
+.ge    { font-style: italic }
+.gr    { color: #a00 }
+.gh    { color: #999 }
+.gi    { color: #000; background-color: #dfd }
+.gi .x { color: #000; background-color: #afa }
+.go    { color: #888 }
+.gp    { color: #555 }
+.gs    { font-weight: bold }
+.gu    { color: #aaa }
+.gt    { color: #a00 }
+.kc    { font-weight: bold }
+.kd    { font-weight: bold }
+.kp    { font-weight: bold }
+.kr    { font-weight: bold }
+.kt    { color: #458; font-weight: bold }
+.m     { color: #099 }
+.s     { color: #d14 }
+.na    { color: #008080 }
+.nb    { color: #0086B3 }
+.nc    { color: #458; font-weight: bold }
+.no    { color: #008080 }
+.ni    { color: #800080 }
+.ne    { color: #900; font-weight: bold }
+.nf    { color: #900; font-weight: bold }
+.nn    { color: #555 }
+.nt    { color: #000080 }
+.nv    { color: #008080 }
+.ow    { font-weight: bold }
+.w     { color: #bbb }
+.mf    { color: #099 }
+.mh    { color: #099 }
+.mi    { color: #099 }
+.mo    { color: #099 }
+.sb    { color: #d14 }
+.sc    { color: #d14 }
+.sd    { color: #d14 }
+.s2    { color: #d14 }
+.se    { color: #d14 }
+.sh    { color: #d14 }
+.si    { color: #d14 }
+.sx    { color: #d14 }
+.sr    { color: #009926 }
+.s1    { color: #d14 }
+.ss    { color: #990073 }
+.bp    { color: #999 }
+.vc    { color: #008080 }
+.vg    { color: #008080 }
+.vi    { color: #008080 }
+.il    { color: #099 }
+
 /* media queries *************************************************************/
 
 @media only screen and (max-device-width: 600px) {
 
 	body {
 		border: none;
+		font-size: 16px;
 		margin: 1em;
 		padding: 0;
 	}
