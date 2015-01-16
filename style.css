@@ -276,8 +276,6 @@ pre {
 	line-height: 1.75;
 	margin: 1em 0;
 	padding: 1em;
-
-		/*background-color: #fff;*/
 	border-left: 2px solid #069;
 }
 
@@ -319,10 +317,9 @@ hr {
 	background-color: #ddd;
 	border: none;
 	height: 1px;
-	margin: 2em 4em;
+	margin: 2em 0;
 	-moz-box-sizing: content-box;
 	box-sizing: content-box;
-	/*padding: 0 2em;*/
 }
 
 del {
@@ -369,13 +366,11 @@ img {
 	text-transform: uppercase;
 }
 
-.site-title span {
-	/*display: block;*/
-}
-
 .site-title:hover {
 	color: #000;
 }
+
+/* entries ********************************************************************/
 
 .entries {
 	margin: 0;
@@ -389,7 +384,6 @@ img {
 
 .entry-title {
 	display: block;
-	/*margin-bottom: 1em;*/
 	max-width: 100%;
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -419,25 +413,11 @@ img {
 	display: inline-block;
 }
 
-
-.post-meta {
-	color: #666;
-	font-style: italic;
-	margin-top: 3em;
-}
 .post-date {
 	color: #666;
 }
 
-/*footer:before {
-	background-color: #fff;
-	color: #069;
-	content: "* * *";
-	display: block;
-	font-size: 1.25em;
-	font-weight: bold;
-	text-align: center;
-}*/
+/* syntax highlighting ********************************************************/
 
 .c     { color: #998; font-style: italic }
 .err   { color: #a61717; background-color: #e3d2d2 }
@@ -501,7 +481,7 @@ img {
 
 /* media queries *************************************************************/
 
-@media only screen and (max-device-width: 600px) {
+@media only screen and (max-device-width: 640px) {
 
 	body {
 		border: none;
@@ -509,4 +489,17 @@ img {
 		margin: 1em;
 		padding: 0;
 	}
+
+}
+
+@media only screen and (max-device-width: 360px) {
+
+	.entry-date {
+		width: 20%;
+	}
+
+	.entry-title {
+		width: 80%;
+	}
+
 }
