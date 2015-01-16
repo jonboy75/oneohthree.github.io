@@ -5,8 +5,8 @@
     <description>minimalistic theme for personal blogs, focused on content</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 16 Jan 2015 13:03:09 -0500</pubDate>
-    <lastBuildDate>Fri, 16 Jan 2015 13:03:09 -0500</lastBuildDate>
+    <pubDate>Fri, 16 Jan 2015 13:06:14 -0500</pubDate>
+    <lastBuildDate>Fri, 16 Jan 2015 13:06:14 -0500</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
